@@ -11,11 +11,13 @@ body, html {
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+	background-size: cover;
+	
 }
 
+
 .title{
-	padding: 60px 0px 30px 0px;
+	padding: 40px 0px 30px 0px;
 }
 /* font styles */
 h3{
@@ -28,8 +30,49 @@ h3{
 
 .pinInput{
 	height: 40px;
+	width: 100%;
 }
 .centerPin{
-		margin: auto;
-    width: 50% !important;
+		width: 50% !important;
+		display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* home submit button */
+.submitButton{
+	background-color: white;
+	color: black;
+	font-family: "komu-a",sans-serif !important;
+	border: solid thin white;
+	font-size: 1.5em;
+	width: 100%;
+}
+
+
+/* footer */
+.footer {
+	position: fixed;
+	left: 0;
+	height: 50px;
+	bottom: 0;
+	width: 100%;
+	background-color: #00000C;
+	color: white;
+	text-align: center;
+}
+.footer .container{
+	margin: 10px 0;
+}
+.footer a{
+  text-decoration-line: underline;
+	color: white !important;
+}
+
+.container {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
 }
