@@ -1,0 +1,33 @@
+.romantic{
+	font-family: 'Sacramento', cursive;
+	background-color: #BC243C !important;
+	color: white !important;
+}
+.entertaining{
+	font-family: 'Oswald', sans-serif;
+	background-color: #F2552C !important;
+	color: white !important;
+}
+.relaxing{
+	font-family: 'Molle', cursive;
+	background-color: #4F84C4 !important;
+	color: white !important;
+}
+.warmth{
+	font-family: 'Courgette', cursive;
+	background-color: #F6D155 !important;
+}
+.card-title{
+	font-size: 2rem;
+}
+.card-body {
+	padding: 1rem !important;
+}
+.card-title {
+	margin-bottom: 0rem !important;
+}
+.card{
+	margin: 2px 0px !important;
+}
+
+

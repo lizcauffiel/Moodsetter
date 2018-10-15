@@ -1,0 +1,17 @@
+.colorCircle {
+	height: 100px !important;
+	width: auto !important;
+	background-color: black;
+	border-radius: 50%;
+}
+.card-title{
+	margin-bottom: 0px !important;
+	font-weight: 700;
+}
+.card{
+	border: none !important;
+	background: transparent !important;
+}
+.colorRow{
+	margin-bottom: 3%;
+}
