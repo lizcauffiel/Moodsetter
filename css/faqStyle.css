@@ -12,12 +12,23 @@
 	color: black !important;
 	background-color: transparent;
 }
-.card-header {
-	padding: .2rem 1.25rem !important;
-	margin-bottom: 0;
-	background-color: transparent !important;
-	border-bottom: 1px solid #dddfd4;
-}
 .card{
 	margin: 10px 0px 10px 0px;
+}
+
+/* start of media queries */
+@media only screen and (max-width: 350px) {
+	.card-header {
+		padding: .2rem 1.25rem !important;
+		margin-bottom: 0;
+		background-color: transparent !important;
+		border-bottom: 1px solid #dddfd4;
+	}
+}
+@media only screen and (min-width: 350px) and (max-width: 450px){
+	.card-header {
+		margin-bottom: 0;
+		background-color: transparent !important;
+		border-bottom: 1px solid #dddfd4;
+	}
 }

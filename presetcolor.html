@@ -78,90 +78,110 @@
 			<div class="row">
 				<!-- faq title -->
 				<div class="title text-center col-12 col-sm-12 col-md-12 col-lg-12">
-					<h2>PreSet Color<br /> Selection</h2>
+					<h1>PreSet Color<br /> Selection</h1>
 				</div>
 			</div>
 			<!--start of preset colors -->
 			<!-- first set of colors -->
-			<div class="row colorRow">
+			<div class="row colorRow mx-auto">
 				<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 					<div class="colorCircle card">
 						<div class="card-title">Red</div>
-						<span class="colorCircle" style="background-color: #990000;"></span>
+						<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle" style="background-color: #990000;"></button>
 					</div>
 				</div>
 				<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 					<div class="colorCircle card">
 						<div class="card-title">Green</div>
-						<span class="colorCircle" style="background-color: #008000;"></span>
+						<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle" style="background-color: #008000;"></button>
 					</div>
 				</div>
 				<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 					<div class="colorCircle card">
 						<div class="card-title">Blue</div>
-						<span class="colorCircle" style="background-color: #3399ff;"></span>
+						<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle" style="background-color: #3399ff;"></button>
 					</div>
 				</div>
 			</div>
 			<!-- second set of colors -->
-			<div class="row colorRow">
+			<div class="row colorRow mx-auto">
 				<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 					<div class="colorCircle card">
 						<div class="card-title">Black</div>
-						<span class="colorCircle" style="background-color: #101010;"></span>
+						<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle" style="background-color: #101010;"></span>
 					</div>
 				</div>
 				<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 					<div class="colorCircle card">
 						<div class="card-title">White</div>
-						<span class="colorCircle" style="background-color: #ffffff; border: solid thin black"></span>
+						<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle" style="background-color: #ffffff; border: solid thin black"></span>
 					</div>
 				</div>
 				<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 					<div class="colorCircle card">
 						<div class="card-title">Purple</div>
-						<span class="colorCircle" style="background-color: #800080;"></span>
+						<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle" style="background-color: #800080;"></span>
 					</div>
 				</div>
 			</div>
 			<!-- third set of colors -->
-			<div class="row colorRow">
+			<div class="row colorRow mx-auto">
 				<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 					<div class="colorCircle card">
 						<div class="card-title">Yellow</div>
-						<span class="colorCircle" style="background-color: #fef65b;"></span>
+						<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle" style="background-color: #fef65b;"></span>
 					</div>
 				</div>
 				<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 					<div class="colorCircle card">
 						<div class="card-title">Magenta</div>
-						<span class="colorCircle" style="background-color: #ff00ff;"></span>
+						<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle" style="background-color: #ff00ff;"></span>
 					</div>
 				</div>
 				<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 					<div class="colorCircle card">
 						<div class="card-title">Cyan</div>
-						<span class="colorCircle" style="background-color: #00ffff;"></span>
+						<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle" style="background-color: #00ffff;"></span>
 					</div>
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row mx-auto">
 				<div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
 					<button class="submitButton">
 						<h2>Submit</h2>
 					</button>
 				</div>
 			</div>
-			<button class="toolTipBtn" id="toolTipBtn">
+			<button class="toolTipBtn" id="toolTipBtn" data-toggle="modal" data-target="#exampleModalCenter">
 				<i class="fas fa-2x fa-question-circle"></i>
 			</button>
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+			 aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalCenterTitle">How to</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<ol type="1">
+								<li>Select a color.</li>
+								<li>Click the submit button.</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
 			<!-- The Modal -->
-			<div id="ToolModal" class="modalToolTip">
-				<!-- Modal content -->
+			<!-- <div id="ToolModal" class="modalToolTip modal-dialog modal-dialog-centered"> -->
+			<!-- Modal content -->
 
-				<!-- Modal content -->
-				<div class="modal-content">
+			<!-- Modal content -->
+			<!-- <div class="modal-content">
 					<span class="close">&times;</span>
 					<ol type="1">
 						<li>Select a color.</li>
@@ -169,7 +189,7 @@
 					</ol>
 				</div>
 
-			</div>
+			</div> -->
 			<br /><br /><br /><br />
 			<!-- /.container -->
 			<!-- footer -->

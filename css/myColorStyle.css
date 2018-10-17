@@ -1,0 +1,21 @@
+h5{
+	font-family: usual,sans-serif !important;
+	font-weight: 600 !important;
+	font-style: normal !important;
+}
+#hexCode{
+	position:absolute;
+	z-index:0;
+	background:white;
+	display:block;
+	color:lightgrey;
+ 
+	/* position: fixed; */
+	bottom: -10%;
+	right: 10%;
+	background-color: transparent;
+}
+#hexCode-text{
+	color:lightgrey;
+	font-size:12px;
+}
