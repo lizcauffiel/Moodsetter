@@ -32,12 +32,14 @@
     	box-shadow: 0 0 4px gray;
 
 } */
-
+.colorTops{
+	margin-top:15px;
+}
 #slider-red-container {
 
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 35px;
+	margin-top: -15px;
 	height: auto;
 	width: 100%;
 	cursor: pointer;
@@ -49,7 +51,7 @@
 
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 35px;
+	margin-top: -15px;
 	height: 40px;
 	width: 100%;
 	cursor: pointer;
@@ -61,7 +63,7 @@
 
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 35px;
+	margin-top: -15px;
 	height: 40px;
 	width: 100%;
 	cursor: pointer;

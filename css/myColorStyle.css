@@ -16,6 +16,26 @@ h5{
 	background-color: transparent;
 }
 #hexCode-text{
-	color:lightgrey;
+	color:black;
 	font-size:12px;
+}
+.rectangleRight {
+  height: 15px;
+  width: 2px;
+  margin-left: 25px;
+  background-color: black;
+}
+.rectangleLeft {
+  height: 15px;
+  width: 2px;
+  background-color: black;
+}
+.infoNumber{
+	margin: 0px;
+}
+/* start of media queries */
+@media only screen and (max-width: 350px) {
+	h5{
+		font-size: 1rem !important;
+	}
 }
