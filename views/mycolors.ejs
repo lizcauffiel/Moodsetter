@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- color slider -->
+	<link rel="stylesheet" type="text/css" href="stylesheets/sliderStyle.css" />
+	<script type='text/javascript' src='javascripts/JBSlider.js'></script>
+
+	<!-- font from typekit css -->
+	<link rel="stylesheet" href="https://use.typekit.net/taq7hkp.css">
+	<!-- fonts from google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Courgette|Dr+Sugiyama|Molle:400i|Oswald:700|Sacramento" rel="stylesheet">
+	<!-- font awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	 crossorigin="anonymous">
+	<!-- general css files -->
+	<link rel="stylesheet" href="sass/childpages.css" />
+	<link href="https://fonts.googleapis.com/css?family=Teko:300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+
+	<!-- specific css files -->
+	<link rel="stylesheet" href="stylesheets/myColorStyle.css" />
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="images/logo.png" />
+
+
+	<title>My Color Selection</title>
+</head>
+
+<body onload='init()'>
+	<% include partials/menu %>
+	<div class="bg">
+		<div class="triangle-right"></div>
+		<div class="triangle-down"></div>
+		<!-- Page Content -->
+		<div class="container modal-dialo">
+			<div class="row">
+				<!-- faq title -->
+				<div class="title text-center col-12 col-sm-12 col-md-12 col-lg-12">
+					<h1>My Color<br /> Selection</h1>
+				</div>
+			</div>
+			<!--start of color sliders -->
+			<!-- red slider -->
+			<div id='slider-wrapper'>
+				<div class="row ">
+					<div class="textColorNames text-right col-2 col-sm-2 col-md-2 col-lg-2">
+						<h5>Red</h5>
+					</div>
+					<div class="colorTops col-8 col-sm-8 col-md-8 col-lg-8">
+						<div class="row">
+							<div class="col-2 col-sm-2 col-md-2 col-lg-2">
+								<small class="infoNumber">0</small>
+								<div class="rectangleLeft"></div>
+							</div>
+							<div class="col-7 col-sm-7 col-md-7 col-lg-7">
+							</div>
+							<div class="text-right col-3 col-sm-3 col-md-3 col-lg-3">
+								<small class="infoNumber">255</small>
+								<div class="rectangleRight"></div>
+							</div>
+						</div>
+						<div id='slider-red-container'></div>
+					</div>
+					<div class="textColorValue col-2 col-sm-2 col-md-2 col-lg-2">
+						<div id='info-red'> <input type="text" id="redColorInput" name="redtext" value="" style="display:none;" />
+						</div>
+					</div>
+				</div>
+				<!-- green slider -->
+				<div class="row ">
+					<div class="textColorNames text-right col-2 col-sm-2 col-md-2 col-lg-2">
+						<h5>Green</h5>
+					</div>
+					<div class="colorTops col-8 col-sm-8 col-md-8 col-lg-8">
+						<div class="row">
+							<div class="col-2 col-sm-2 col-md-2 col-lg-2">
+								<small class="infoNumber">0</small>
+								<div class="rectangleLeft"></div>
+							</div>
+							<div class="col-7 col-sm-7 col-md-7 col-lg-7">
+							</div>
+							<div class="text-right col-3 col-sm-3 col-md-3 col-lg-3">
+								<small class="infoNumber">255</small>
+								<div class="rectangleRight"></div>
+							</div>
+						</div>
+						<div id='slider-green-container'></div>
+					</div>
+					<div class="textColorValue col-2 col-sm-2 col-md-2 col-lg-2">
+						<div id='info-green'></div>
+					</div>
+				</div>
+				<!-- blue slider -->
+				<div class="row ">
+					<div class="textColorNames text-right col-2 col-sm-2 col-md-2 col-lg-2">
+						<h5>Blue</h5>
+					</div>
+					<div class="colorTops col-8 col-sm-8 col-md-8 col-lg-8">
+						<div class="row">
+							<div class="col-2 col-sm-2 col-md-2 col-lg-2">
+								<small class="infoNumber">0</small>
+								<div class="rectangleLeft"></div>
+							</div>
+							<div class="col-7 col-sm-7 col-md-7 col-lg-7">
+							</div>
+							<div class="text-right col-3 col-sm-3 col-md-3 col-lg-3">
+								<small class="infoNumber">255</small>
+								<div class="rectangleRight"></div>
+							</div>
+						</div>
+						<div id='slider-blue-container'></div>
+					</div>
+					<div class="textColorValue col-2 col-sm-2 col-md-2 col-lg-2">
+						<div id='info-blue'></div>
+					</div>
+				</div>
+			</div>
+			<br />
+
+			<div class="row ">
+				<div class="text-left col-3 col-sm-3 col-md-3 col-lg-3">
+					<h5>Preview<br />Color</h5>
+				</div>
+				<div class="text-center col-9 col-sm-9 col-md-9 col-lg-9">
+					<div id='wrapper'>
+						<div id="hexCode">
+							<p id="hexCode-text">Background</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br />
+
+			<div class="row">
+				<div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
+					<button class="submitButton">
+						<h2>Submit</h2>
+					</button>
+				</div>
+			</div>
+			<button class="toolTipBtn" id="toolTipBtn">
+				<i class="fas fa-2x fa-question-circle"></i>
+			</button>
+			<!-- The Modal -->
+			<div id="ToolModal" class="modalToolTip">
+				<!-- Modal content -->
+
+				<!-- Modal content -->
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<ol type="1">
+						<li>Select a color.</li>
+						<li>Click the submit button.</li>
+					</ol>
+				</div>
+
+			</div>
+			<br /><br /><br /><br />
+			<!-- /.container -->
+
+			<% include partials/footer %>
+		</div>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		 crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		 crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		 crossorigin="anonymous"></script>
+		<script>
+			// Get the modal
+			var modal = document.getElementById('ToolModal');
+			// Get the button that opens the modal
+			var btn = document.getElementById('toolTipBtn');
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+
+			// When the user clicks the button, open the modal 
+			btn.onclick = function () {
+				modal.style.display = "block";
+			}
+
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function () {
+				modal.style.display = "none";
+			}
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+
+			// When the user clicks anywhere outside of the modal, close it
+
+			//color slider
+
+			function init() {
+
+				var slider_options = function (class_color) {
+
+					var slider_opts = {
+						id: 'slider-' + class_color + '-container',
+						color: '' + class_color + '',
+						background_content: '<div class="line"></div>',
+						handle_content: '<div class="slider"></div>',
+						callback: slider_changed
+					};
+
+					return slider_opts;
+				}
+
+				var slider_changed = function (value) {
+
+					console.log(value);
+
+				}
+
+				var color = {
+
+					red: 'red',
+					green: 'green',
+					blue: 'blue'
+
+				};
+
+				var slider_red = new JBSlider(slider_options(color.red));
+
+				var slider_green = new JBSlider(slider_options(color.green));
+
+				var slider_blue = new JBSlider(slider_options(color.blue));
+
+			}
+
+			//getting color value of the button clicked
+			$("#slider-red-container").change(function () {
+				//if button has the colorCircle class, if not return
+				console.log($('#info-red').value());
+			});
+		</script>
+
+</body>
+
+</html>

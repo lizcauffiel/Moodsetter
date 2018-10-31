@@ -1,0 +1,10 @@
+.smallWordTitle{
+	margin: 0px 50px !important;
+padding: 20px !important;
+}
+
+/* phone button */
+#call{
+	background-color: transparent;
+	border: none;
+}

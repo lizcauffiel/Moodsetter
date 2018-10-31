@@ -1,0 +1,41 @@
+h5{
+	font-family: usual,sans-serif !important;
+	font-weight: 600 !important;
+	font-style: normal !important;
+}
+#hexCode{
+	position:absolute;
+	z-index:0;
+	background:white;
+	display:block;
+	color:lightgrey;
+ 
+	/* position: fixed; */
+	bottom: -10%;
+	right: 10%;
+	background-color: transparent;
+}
+#hexCode-text{
+	color:black;
+	font-size:12px;
+}
+.rectangleRight {
+  height: 15px;
+  width: 2px;
+  margin-left: 25px;
+  background-color: black;
+}
+.rectangleLeft {
+  height: 15px;
+  width: 2px;
+  background-color: black;
+}
+.infoNumber{
+	margin: 0px;
+}
+/* start of media queries */
+@media only screen and (max-width: 350px) {
+	h5{
+		font-size: 1rem !important;
+	}
+}
