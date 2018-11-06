@@ -56,6 +56,8 @@ var mysql = require('mysql');
 var bodyParser = require("body-parser");
 var colorUtility = require('./public/javascripts/color');
 
+
+//connect to db
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
@@ -65,6 +67,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
+//global connection
 global.db = connection;
 
 // all environments
@@ -79,7 +82,7 @@ app.use(session({
 	resave: false,
 	saveUninitialized: true,
 	//cookie expires after 2 min
-	cookie: { maxAge: 120000 }
+	cookie: { maxAge: 820000 }
 }))
 
 // development only
@@ -88,17 +91,39 @@ app.get('/', routes.index);//call for main index page
 app.get('/signup', user.signup);//call for signup page
 app.post('/signup', user.signup);//call for signup post 
 app.get('/login', routes.index);//call for login page
-app.post('/login', user.login);//call for login post
+app.post('/login', user.login);//call for login post function in user.js
 app.get('/presetcolor', user.presetcolor);//call for dashboard page after login
 
+app.get('/user', function (req, res) {
+	console.log(req.query);
+	ssn = req.session;
+	ssn.tableID = req.query.tableID;
+	console.log("req.query.tableID", req.query.tableID);
+	console.log(ssn.tableID);
+	res.end('done');
+});
 
+//get the color the user picked from the pages
 app.post('/color', function (req, res) {
 	//var redPreset = req.body.redPreset;
 	//console.log(redPreset);
-	colorUtility.sendColor();
+	console.log("this is before sending the color");
+
+	var red = req.body.redInput;
+	var green = req.body.greenInput;
+	var blue = req.body.blueInput;
+	var host = req.session.host;
+	//var tableID = req.session.tableID;
+	console.log("sending color");
+
+	colorUtility.sendColor(host, red, green, blue);
+
+	//value from the color pages just submitted
 	console.log(req.body);
 	//res.send(200);
+	console.log("sent color");
 
+	//redirect to color page
 	return res.redirect('back');
 
 });

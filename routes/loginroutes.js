@@ -1,3 +1,6 @@
+//THIS FILE IS NOT IN USE
+
+
 var mysql = require('mysql');
 var connection = mysql.createConnection({
 	database: "moodsetter",

@@ -1,3 +1,5 @@
+//THIS FILE IS NOT IN USE
+
 //select from db where it equals
 var mysql = require('mysql');
 
@@ -12,7 +14,7 @@ con.connect(function (err) {
 	if (err) throw err;
 	con.query("SELECT * FROM customertable WHERE tablePin = '12345'", function (err, result) {
 		if (err) throw err;
-		console.log(result);
+		console.log("result first", result);
 	});
 });
 

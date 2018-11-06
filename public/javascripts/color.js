@@ -1,27 +1,38 @@
 var express = require("express");
 var router = express.Router();
+const request = require('request');
+//new
+var session = require('express-session');
+var app = express();
 
-// /* GET customertable listing. */
+var ssn;
+// /* GET customizable listing. */
 // router.get('/', function (req, res, next) {
 // 	res.send('respond with a resource');
 // 	console.log("preset");
 // });
+var user = require('../../routes/user');
 
 
-const request = require('request');
 
 
 
 module.exports = {
-	sendColor: function () {
-		request('http://192.168.1.207:5000/changeLedInRange?from=1&to=15&red=190&green=80&blue=90&brightness=50', { json: true }, (err, res, body) => {
+	sendColor: function (host, red, green, blue) {
+		var colorEndPoint = "http://" + host + "/changeLedInRange?from=0&to=59&red=" + red + "&green=" + green + "&blue=" + blue + "&brightness=50"
+		console.log("contacting colorEndPoint", colorEndPoint);
+
+		request(colorEndPoint, { json: true }, (err, res, body) => {
+			console.log("just sent request");
 			if (err) { return console.log(err); }
-			console.log(body.url);
-			console.log(body.explanation);
+			//	console.log(body.url);
+			console.log("this is color js");
+			//	console.log(body.explanation);
 
 		});
 	}
 };
+
 
 
 //app.listen(3000);

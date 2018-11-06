@@ -1,3 +1,4 @@
+// this is a JQuery plug in found from https://www.jqueryscript.net/other/RGB-Color-Slider-Plugin-jQuery-JB-Slider.html and modified
 var JBSlider = function (opts) {
 
 	this.opts = opts;
@@ -122,7 +123,7 @@ function setValues(event, slider) {
 
 		slider.jb_slider_handle.css('background-color', 'rgba(0,0,0,1)');
 
-		label_selector.html(0);
+		label_selector.innerhtml(0);
 
 		setBackground(slider, 0);
 
@@ -132,7 +133,7 @@ function setValues(event, slider) {
 
 		slider.jb_slider_handle.css('background-color', max_color_value);
 
-		label_selector.html(255);
+		label_selector.innerhtml(255);
 
 		setBackground(slider, 255);
 
