@@ -14,7 +14,7 @@
 }
 
 .title{
-	padding: 40px 0px 30px 0px;
+	padding: 25px 0px 30px 0px;
 }
 /* font styles */
 h3{
@@ -44,6 +44,7 @@ h3{
 	border: solid thin white;
 	font-size: 1.5em;
 	width: 100%;
+	padding: 6px;
 }
 .colorButton {
 	background-color: white;

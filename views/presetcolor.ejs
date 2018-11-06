@@ -62,7 +62,7 @@
 					<div style="" class="panel-body">
 						<!-- start of form, that includes a post method to color.js -->
 						<form id="presetcolorform" class="form-horizontal" role="form" method="post" action="/color">
-							<input type="text" id="redColorInput" name="redInput" value="" style="" />
+							<input type="text" id="redColorInput" name="redInput" value="" style="display: none;" />
 							<input type=" text" id="greenColorInput" name="greenInput" value="" style="display: none;" />
 							<input type="text" id="blueColorInput" name="blueInput" value="" style="display: none;" />
 
@@ -93,8 +93,8 @@
 							<div class="row colorRow mx-auto">
 								<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 									<div class="colorCircle card">
-										<div class="card-title">Black</div>
-										<button type="button" value="" class="mx-auto btn-circle btn-xl btn colorCircle black" style="background-color: #101010;"></button>
+										<div class="card-title">Navy</div>
+										<button type="button" value="" class="mx-auto btn-circle btn-xl btn colorCircle navyBlue" style="background-color: #343148;"></button>
 									</div>
 								</div>
 								<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
@@ -106,7 +106,7 @@
 								<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 									<div class="colorCircle card">
 										<div class="card-title">Purple</div>
-										<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle purple" style="background-color: #800080;"></button>
+										<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle purple" style="background-color: #6b5b95;"></button>
 									</div>
 								</div>
 							</div>
@@ -115,19 +115,19 @@
 								<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 									<div class="colorCircle card">
 										<div class="card-title">Yellow</div>
-										<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle yellow" style="background-color: #fef65b;"></button>
+										<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle yellow" style="background-color: #f1ea7f;"></button>
 									</div>
 								</div>
 								<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 									<div class="colorCircle card">
-										<div class="card-title">Magenta</div>
-										<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle magenta" style="background-color: #ff00ff;"></button>
+										<div class="card-title">Pink</div>
+										<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle pink" style="background-color: #ce3175;"></button>
 									</div>
 								</div>
 								<div class="text-center col-4 col-sm-4 col-md-4 col-lg-4">
 									<div class="colorCircle card">
 										<div class="card-title">Cyan</div>
-										<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle cyan" style="background-color: #00ffff;"></button>
+										<button type="button" class="mx-auto btn-circle btn-xl btn colorCircle cyan" style="background-color: #40E0D0;"></button>
 									</div>
 								</div>
 							</div>
@@ -219,6 +219,30 @@
 					}
 				}); */
 
+		/* 		$("button").click(function () {
+					if ($(this).hasClass("colorCircle")) {
+						//alert(this.value); // or alert($(this).attr('id'));
+						console.log("hi");
+						$(this).css("border", "3px #2491eb solid");
+					}
+		
+				}) */
+		$('button').on('touchstart', function (e) {
+			$(this).addClass('tapped');
+		});
+
+		$('button').on('touchend', function (e) {
+			$(this).removeClass('tapped');
+		});
+		$('button').on('tap', function (e) {
+			e.preventDefault();
+
+			//do your thing
+
+			return false;
+		});
+
+
 		//getting color value of the button clicked
 		$("button").click(function () {
 			//if button has the colorCircle class, if not return
@@ -230,6 +254,8 @@
 				console.log($('#redColorInput').val());
 				console.log($('#greenColorInput').val());
 				console.log($('#blueColorInput').val());
+				//	$(this).css("border", "3px #2491eb solid");
+
 			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("green")) {
 				//alert(this.value); // or alert($(this).attr('id'));
 				$("#redColorInput").val(0);
@@ -238,6 +264,8 @@
 				console.log($('#redColorInput').val());
 				console.log($('#greenColorInput').val());
 				console.log($('#blueColorInput').val());
+				//	$(this).css("border", "3px #2491eb solid");
+
 			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("blue")) {
 				//alert(this.value); // or alert($(this).attr('id'));
 				$("#redColorInput").val(0);
@@ -246,14 +274,18 @@
 				console.log($('#redColorInput').val());
 				console.log($('#greenColorInput').val());
 				console.log($('#blueColorInput').val());
-			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("black")) {
-				//alert(this.value); // or alert($(this).attr('id'));
-				$("#redColorInput").val(0);
-				$("#greenColorInput").val(0);
-				$("#blueColorInput").val(0);
+				// $(this).css("border", "3px #2491eb solid");
+
+			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("navyBlue")) {
+				//alert(this.value); // or alert($(this).attr('id'));52, 49, 72
+				$("#redColorInput").val(52);
+				$("#greenColorInput").val(49);
+				$("#blueColorInput").val(72);
 				console.log($('#redColorInput').val());
 				console.log($('#greenColorInput').val());
 				console.log($('#blueColorInput').val());
+				// $(this).css("border", "3px #2491eb solid");
+
 			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("white")) {
 				//alert(this.value); // or alert($(this).attr('id'));
 				$("#redColorInput").val(255);
@@ -262,6 +294,48 @@
 				console.log($('#redColorInput').val());
 				console.log($('#greenColorInput').val());
 				console.log($('#blueColorInput').val());
+				// $(this).css("border", "3px #2491eb solid");
+
+			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("purple")) {
+				//alert(this.value); // or alert($(this).attr('id'));107, 91, 149
+				$("#redColorInput").val(107);
+				$("#greenColorInput").val(91);
+				$("#blueColorInput").val(149);
+				console.log($('#redColorInput').val());
+				console.log($('#greenColorInput').val());
+				console.log($('#blueColorInput').val());
+				// $(this).css("border", "3px #2491eb solid");
+
+			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("yellow")) {
+				//alert(this.value); // or alert($(this).attr('id'));241, 234, 127
+				$("#redColorInput").val(241);
+				$("#greenColorInput").val(234);
+				$("#blueColorInput").val(127);
+				console.log($('#redColorInput').val());
+				console.log($('#greenColorInput').val());
+				console.log($('#blueColorInput').val());
+				// $(this).css("border", "3px #2491eb solid");
+
+			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("pink")) {
+				//alert(this.value); // or alert($(this).attr('id'));206, 49, 117
+				$("#redColorInput").val(206);
+				$("#greenColorInput").val(49);
+				$("#blueColorInput").val(117);
+				console.log($('#redColorInput').val());
+				console.log($('#greenColorInput').val());
+				console.log($('#blueColorInput').val());
+				// $(this).css("border", "3px #2491eb solid");
+
+			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("cyan")) {
+				//alert(this.value); // or alert($(this).attr('id'));64,224,208
+				$("#redColorInput").val(64);
+				$("#greenColorInput").val(224);
+				$("#blueColorInput").val(208);
+				console.log($('#redColorInput').val());
+				console.log($('#greenColorInput').val());
+				console.log($('#blueColorInput').val());
+				// $(this).css("border", "3px #2491eb solid");
+
 			}
 			else {
 				return;

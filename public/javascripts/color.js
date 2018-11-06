@@ -19,7 +19,7 @@ var user = require('../../routes/user');
 
 module.exports = {
 	sendColor: function (host, red, green, blue) {
-		var colorEndPoint = "http://" + host + "/changeLedInRange?from=0&to=59&red=" + red + "&green=" + green + "&blue=" + blue + "&brightness=50"
+		var colorEndPoint = "http://" + host + "/changeLedInRange?from=0&to=59&red=" + red + "&green=" + green + "&blue=" + blue + "&brightness=90"
 		console.log("contacting colorEndPoint", colorEndPoint);
 
 		request(colorEndPoint, { json: true }, (err, res, body) => {

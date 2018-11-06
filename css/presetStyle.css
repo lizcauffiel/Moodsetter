@@ -22,6 +22,22 @@
   line-height: 1.33;
   border-radius: 25px;
 } */
+
+.colorCircle::focus {
+	border: 3px #2491eb solid;
+}
+.colorCircle::active {
+	border: 3px #2491eb solid;
+}
+.colorCircle::before {
+	border: 3px #2491eb solid !important;
+}
+.colorCircle::hover {
+	border: 3px #2491eb solid;
+}
+.colorCircle::after {
+	border: 3px #2491eb solid;
+}
 .btn-circle.btn-xl {
 	width: 70px;
 	height: 70px;

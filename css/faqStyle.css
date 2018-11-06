@@ -1,6 +1,9 @@
 
 /* font styles */
-
+.smallWordTitle{
+	margin: 0px 50px !important;
+padding: 20px 15px !important;
+}
 
 /* faq dropdowns */
 /* dropdown arrow */
