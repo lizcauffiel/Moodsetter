@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 	<!-- fontfrom typekit css -->
 	<link rel="stylesheet" href="https://use.typekit.net/taq7hkp.css">
 
@@ -38,7 +39,7 @@
 					<img class="title" src="images/title.png" alt="Mood Setter" style="width: 100%;">
 				</div>
 			</div>
-			<!-- title say enter table pin -->
+			<!-- title enter table pin -->
 			<div class="row">
 				<div class="col-12 col-sm-12 col-md-12 col-lg-12">
 					<h3>ENTER TABLE PIN</h3>
@@ -47,7 +48,6 @@
 			<div id="loginbox" style="" class="mainbox">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<!--<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>-->
 					</div>
 					<!-- error message if the user logs in wrong (not in database) -->
 					<div style="" class="panel-body">
@@ -56,8 +56,8 @@
 							<%= message %>
 						</div>
 						<% } %>
+						<!-- start of form post to login -->
 						<form id="loginform" class="form-horizontal" role="form" method="post" action="/login">
-
 							<!-- table pin input -->
 							<div class="row">
 								<div class="col-2 col-sm-2 col-md-2 col-lg-2"></div>

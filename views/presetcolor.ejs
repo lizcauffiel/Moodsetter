@@ -28,15 +28,6 @@
 
 
 	<title>PreSet Color Selection</title>
-	<script>
-
-		/* 		function clic(element) {
-					
-					var id = document.getElementById("redButton");
-					alert("Clicked on " + id.value);
-				} */
-
-	</script>
 </head>
 
 <body>
@@ -227,21 +218,6 @@
 					}
 		
 				}) */
-		$('button').on('touchstart', function (e) {
-			$(this).addClass('tapped');
-		});
-
-		$('button').on('touchend', function (e) {
-			$(this).removeClass('tapped');
-		});
-		$('button').on('tap', function (e) {
-			e.preventDefault();
-
-			//do your thing
-
-			return false;
-		});
-
 
 		//getting color value of the button clicked
 		$("button").click(function () {

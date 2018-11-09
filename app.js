@@ -1,63 +1,18 @@
-// var createError = require('http-errors');
-// var express = require('express');
-// var path = require('path');
-// var cookieParser = require('cookie-parser');
-// var logger = require('morgan');
+//This is place where we will be defining all our website routes.
 
-// var indexRouter = require('./routes/index');
-// var usersRouter = require('./routes/users');
-
-// var app = express();
-
-// // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
-
-// app.use(logger('dev'));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-
-// // catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   next(createError(404));
-// });
-
-// // error handler
-// app.use(function(err, req, res, next) {
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
-
-// module.exports = app;
-
-
-/**
-* Module dependencies.
-*/
+//Module dependencies.
 var express = require('express')
 	, routes = require('./routes')
 	, user = require('./routes/user')
 	, http = require('http')
 	, path = require('path');
-//var methodOverride = require('method-override');
 var session = require('express-session');
 var app = express();
 var mysql = require('mysql');
 var bodyParser = require("body-parser");
 var colorUtility = require('./public/javascripts/color');
 
-
-//connect to db
+//connect to user sql (table) db
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
@@ -65,6 +20,7 @@ var connection = mysql.createConnection({
 	database: 'moodsetter'
 });
 
+//create connection
 connection.connect();
 
 //global connection
@@ -81,63 +37,55 @@ app.use(session({
 	secret: 'keyboard cat',
 	resave: false,
 	saveUninitialized: true,
-	//cookie expires after 2 min
-	cookie: { maxAge: 820000 }
+	//cookie expires after 1 hour
+	cookie: { expiry: 3600 }
 }))
 
 // development only
-
 app.get('/', routes.index);//call for main index page
-app.get('/signup', user.signup);//call for signup page
-app.post('/signup', user.signup);//call for signup post 
 app.get('/login', routes.index);//call for login page
 app.post('/login', user.login);//call for login post function in user.js
-app.get('/presetcolor', user.presetcolor);//call for dashboard page after login
+app.get('/presetcolor', user.presetcolor);//call for preset color selection page after login
 
+//call for user.js to get the session variable tableID
 app.get('/user', function (req, res) {
-	console.log(req.query);
+	//testing
+	//console.log(req.query);
 	ssn = req.session;
 	ssn.tableID = req.query.tableID;
-	console.log("req.query.tableID", req.query.tableID);
-	console.log(ssn.tableID);
+	//testing
+	//console.log("req.query.tableID", req.query.tableID);
+	//console.log(ssn.tableID);
 	res.end('done');
 });
 
 //get the color the user picked from the pages
 app.post('/color', function (req, res) {
-	//var redPreset = req.body.redPreset;
-	//console.log(redPreset);
-	console.log("this is before sending the color");
+	//testing
+	//console.log("this is before sending the color");
 
+	//assigning variables from the form
 	var red = req.body.redInput;
 	var green = req.body.greenInput;
 	var blue = req.body.blueInput;
 	var host = req.session.host;
-	//var tableID = req.session.tableID;
-	console.log("sending color");
+	//testing
+	//console.log("sending color");
 
+	//calling colorUtility variable which is calling color.js file
+	//to get the sendColor function and passing these parameters
 	colorUtility.sendColor(host, red, green, blue);
 
-	//value from the color pages just submitted
-	console.log(req.body);
-	//res.send(200);
-	console.log("sent color");
+	//testing-value from the color pages just submitted
+	//console.log(req.body);
+	//console.log("sent color");
 
-	//redirect to color page
+	//after the request is sent redirect the user back on the same page they were on
 	return res.redirect('back');
 
 });
 
-//app.get('/presetcolor', color);  //call for dashboard page after login
-//app.post('/presetcolor', color.presetcolor);//call for login post
-// app.post('/color', function (req, res) {
-// 	var redPreset = req.body.redPreset;
-// 	console.log(redPreset);
-// });
-
-app.get('/home/logout', user.logout);//call for logout
-app.get('/home/profile', user.profile);//to render users profile
-
+//get the pages when the user clicks on their links and render them
 app.get('/loginhome', function (req, res) {
 	res.render('loginhome', {
 		title: 'loginhome'
@@ -180,5 +128,7 @@ app.get('/contact', function (req, res) {
 });
 //Middleware
 
+//listening on port 8080
 app.listen(8080)
+//export app from this file
 module.exports = app;

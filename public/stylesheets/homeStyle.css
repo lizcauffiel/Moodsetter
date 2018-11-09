@@ -1,22 +1,42 @@
+/* general */
+.container {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+body, html {
+  height: 100%;
+}
+
 /* background image */
 .bg {
-  /* The image used */
+	/* The image used */
+	/* credit https://fineartamerica.com/featured/12-defocused-abstract-background-lights-at-night-nathaporn-tunthong.html
+	Title: Defocused Abstract Background Lights At Night.Nathaporn Tunthong by Nathaporn Tunthong */
   background-image: url("../images/homeBackground.jpg");
-
   /* Full height */
   height: 100%;
-
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
 	background-size: cover;
-	
 }
 
+/* mood setter title */
 .title{
 	padding: 25px 0px 30px 0px;
 }
 /* font styles */
+h2{
+	/* font-family: 'Anton', sans-serif !important; */
+	font-family: "komu-a",sans-serif !important;
+	color: black !important;
+	letter-spacing: 1.5px; 
+	text-align: center;
+	border: black solid thin;
+}
 h3{
 	/* font-family: 'Anton', sans-serif !important; */
 	font-family: "komu-a",sans-serif !important;
@@ -56,21 +76,8 @@ h3{
 	line-height: normal;
 	padding: 5% 0 5% 0;
 }
-body, html {
-  height: 100%;
-}
-.bg {
-  /* The image used */
- 
-  /* Full height */
-  height: 100%;
 
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
+/* footer */
 .footer{
 	position: fixed;
 	left: 0;
@@ -101,19 +108,6 @@ body, html {
  padding: 0 !important;
 }
 
-.container {
-	width: 100%;
-	padding-right: 15px;
-	padding-left: 15px;
-	margin-right: auto;
-	margin-left: auto;
-}
-h2{
-	/* font-family: 'Anton', sans-serif !important; */
-	font-family: "komu-a",sans-serif !important;
-	color: black !important;
-	letter-spacing: 1.5px; 
-	text-align: center;
-	border: black solid thin;
-}
+
+
 
