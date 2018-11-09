@@ -30,45 +30,46 @@
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="images/logo.png" />
 
-
 	<title>My Color Selection</title>
 </head>
 
 <body onload='init()'>
+	<!-- ejs menu (nav bar navigation) -->
 	<% include partials/menu %>
+	<!-- background -->
 	<div class="bg">
 		<div class="triangle-right"></div>
 		<div class="triangle-down"></div>
 		<!-- Page Content -->
 		<div class="container modal-dialo">
 			<div class="row">
-				<!-- my colors title -->
+				<!-- my colors selection title -->
 				<div class="title text-center col-12 col-sm-12 col-md-12 col-lg-12">
 					<h1>My Color<br /> Selection</h1>
 				</div>
 			</div>
-			<div id=mycolorbox" style="" class="mainbox">
+			<!-- start of form -->
+			<div id=mycolorbox" class="mainbox">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<!--<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>-->
 					</div>
-					<!-- error message if the user is not logged in (started a session) -->
-					<div style="" class="panel-body">
+					<div class="panel-body">
 						<!-- start of form, that includes a post method to color.js -->
 						<form id="mycolorform" class="form-horizontal" role="form" method="post" action="/color">
-
-							<!--start of color sliders -->
-							<!-- red slider -->
+							<!-- input boxes to get the color RGB values that are selected, do not display on website -->
 							<input type="text" id="redColorInput" name="redInput" value="" style="display: none;" />
 							<input type=" text" id="greenColorInput" name="greenInput" value="" style="display: none;" />
 							<input type="text" id="blueColorInput" name="blueInput" value="" style="display: none;" />
-
+							<!--start of color sliders -->
+							<!-- red slider -->
 							<div id='slider-wrapper'>
 								<div class="row ">
+									<!-- title -->
 									<div class="textColorNames text-right col-2 col-sm-2 col-md-2 col-lg-2">
 										<h5>Red</h5>
 									</div>
 									<div class="colorTops col-8 col-sm-8 col-md-8 col-lg-8">
+										<!-- text for 0-255 and rectangles  -->
 										<div class="row">
 											<div class="col-2 col-sm-2 col-md-2 col-lg-2">
 												<small class="infoNumber">0</small>
@@ -81,6 +82,7 @@
 												<div class="rectangleRight"></div>
 											</div>
 										</div>
+										<!-- color value -->
 										<div id='slider-red-container'></div>
 									</div>
 									<div class="textColorValue col-2 col-sm-2 col-md-2 col-lg-2">
@@ -90,10 +92,12 @@
 								</div>
 								<!-- green slider -->
 								<div class="row ">
+									<!-- title -->
 									<div class="textColorNames text-right col-2 col-sm-2 col-md-2 col-lg-2">
 										<h5>Green</h5>
 									</div>
 									<div class="colorTops col-8 col-sm-8 col-md-8 col-lg-8">
+										<!-- text for 0-255 and rectangles  -->
 										<div class="row">
 											<div class="col-2 col-sm-2 col-md-2 col-lg-2">
 												<small class="infoNumber">0</small>
@@ -106,6 +110,7 @@
 												<div class="rectangleRight"></div>
 											</div>
 										</div>
+										<!-- color value -->
 										<div id='slider-green-container'></div>
 									</div>
 									<div class="textColorValue col-2 col-sm-2 col-md-2 col-lg-2">
@@ -115,10 +120,12 @@
 								</div>
 								<!-- blue slider -->
 								<div class="row ">
+									<!-- title -->
 									<div class="textColorNames text-right col-2 col-sm-2 col-md-2 col-lg-2">
 										<h5>Blue</h5>
 									</div>
 									<div class="colorTops col-8 col-sm-8 col-md-8 col-lg-8">
+										<!-- text for 0-255 and rectangles  -->
 										<div class="row">
 											<div class="col-2 col-sm-2 col-md-2 col-lg-2">
 												<small class="infoNumber">0</small>
@@ -131,6 +138,7 @@
 												<div class="rectangleRight"></div>
 											</div>
 										</div>
+										<!-- color value -->
 										<div id='slider-blue-container'></div>
 									</div>
 									<div class="textColorValue col-2 col-sm-2 col-md-2 col-lg-2">
@@ -140,8 +148,8 @@
 								</div>
 							</div>
 							<br />
-
-							<div class="row ">
+							<!-- preview color box -->
+							<div class="row">
 								<div class="text-left col-3 col-sm-3 col-md-3 col-lg-3">
 									<h5>Preview<br />Color</h5>
 								</div>
@@ -151,7 +159,7 @@
 								</div>
 							</div>
 							<br />
-
+							<!-- submit button-->
 							<div class="row">
 								<div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
 									<button type="submit" id="btn-mycolor" class="submitButton">
@@ -170,20 +178,18 @@
 			<!-- The Modal -->
 			<div id="ToolModal" class="modalToolTip">
 				<!-- Modal content -->
-
-				<!-- Modal content -->
 				<div class="modal-content">
 					<span class="close">&times;</span>
 					<ol type="1">
+						<li>Select red slider first.</li>
 						<li>Select a color.</li>
 						<li>Click the submit button.</li>
 					</ol>
 				</div>
-
 			</div>
 			<br /><br /><br /><br />
 			<!-- /.container -->
-
+			<!-- footer -->
 			<% include partials/footer %>
 		</div>
 		<!-- Optional JavaScript -->
@@ -219,11 +225,15 @@
 				}
 			}
 
-			//color slider
+			//color slider, communicating to JBSlider.js in public/javascripts/JBSlider.js
 			function init() {
-
+				//variable equal a function passing the class color as a parameter
 				var slider_options = function (class_color) {
-
+					/* slider_opts object equals the id of the slider (red, green, blue) which is the class_color picked
+					color is the class_color (red, green, blue) that was picked value
+					background_content gets the line which the slider is on
+					handle_content get the color slider
+					callback the slider_changed function */
 					var slider_opts = {
 						id: 'slider-' + class_color + '-container',
 						color: '' + class_color + '',
@@ -231,93 +241,52 @@
 						handle_content: '<div class="slider"></div>',
 						callback: slider_changed
 					};
-
+					//return the variable slider_opts
 					return slider_opts;
 				}
-
+				//variable equal a function passing the value color as a parameter
 				var slider_changed = function (value) {
-
-					console.log(value);
-
+					//testing purposes
+					//	console.log(value);
 				}
-
+				//variable equals object colors
 				var color = {
-
 					red: 'red',
 					green: 'green',
 					blue: 'blue'
-
 				};
-
+				//variable equal a function passing the class color slider as a parameter
 				var slider_red = new JBSlider(slider_options(color.red));
-
+				//variable equal a function passing the class color slider as a parameter
 				var slider_green = new JBSlider(slider_options(color.green));
-
+				//variable equal a function passing the class color slider as a parameter
 				var slider_blue = new JBSlider(slider_options(color.blue));
-
 			}
 
 
 			//getting red color value of the button clicked
 			$("#slider-red-container").click(function () {
 				//if button has the colorCircle class, if not return
-				console.log($('#info-red').html());
+				//testing
+				//console.log($('#info-red').html());
 				$("#redColorInput").val($('#info-red').html());
 			});
 
-			//getting color value of the button clicked
+			//getting green color value of the button clicked
 			$("#slider-green-container").click(function () {
 				//if button has the colorCircle class, if not return
-				console.log($('#info-green').html());
+				//testing
+				//console.log($('#info-green').html());
 				$("#greenColorInput").val($('#info-green').html());
 			});
-			//getting color value of the button clicked
+			//getting blue color value of the button clicked
 			$("#slider-blue-container").click(function () {
 				//if button has the colorCircle class, if not return
-				console.log($('#info-blue').html());
+				//testing
+				//console.log($('#info-blue').html());
 				$("#blueColorInput").val($('#info-blue').html());
 			});
 
-
-
-			//converting the rgb color into hex color
-			function HEX2RGB(hex) {
-				"use strict";
-				if (hex.charAt(0) === '#') {
-					hex = hex.substr(1);
-				}
-				if ((hex.length < 2) || (hex.length > 6)) {
-					return false;
-				}
-				var values = hex.split(''),
-					r,
-					g,
-					b;
-
-				if (hex.length === 2) {
-					r = parseInt(values[0].toString() + values[1].toString(), 16);
-					g = r;
-					b = r;
-				} else if (hex.length === 3) {
-					r = parseInt(values[0].toString() + values[0].toString(), 16);
-					g = parseInt(values[1].toString() + values[1].toString(), 16);
-					b = parseInt(values[2].toString() + values[2].toString(), 16);
-				} else if (hex.length === 6) {
-					r = parseInt(values[0].toString() + values[1].toString(), 16);
-					g = parseInt(values[2].toString() + values[3].toString(), 16);
-					b = parseInt(values[4].toString() + values[5].toString(), 16);
-				} else {
-					return false;
-				}
-				console.log([r, g, b]);
-				return [r, g, b];
-			}
-			function myFunction() {
-				console.log("red");
-				var hexvalue = document.getElementById("romanticValue").value;
-				console.log(hexvalue);
-				HEX2RGB(hexvalue);
-			}
 		</script>
 
 </body>

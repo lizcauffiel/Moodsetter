@@ -32,6 +32,7 @@
 <body>
 	<!-- ejs menu (nav bar navigation) -->
 	<% include partials/menu %>
+	<!-- background -->
 	<div class="bg">
 		<div class="triangle-right"></div>
 		<div class="triangle-down"></div>
@@ -45,10 +46,10 @@
 			</div>
 			<!-- start of form, that includes a post method to color.js -->
 			<form id="moodcolorform" class="form-horizontal" role="form" method="post" action="/color">
+				<!-- input boxes to get the color RGB values that are selected, do not display on website -->
 				<input type="text" id="redColorInput" name="redInput" value="" style="display: none;" />
 				<input type=" text" id="greenColorInput" name="greenInput" value="" style="display: none;" />
 				<input type="text" id="blueColorInput" name="blueInput" value="" style="display: none;" />
-
 				<!--start of mood colors -->
 				<!-- romantic card -->
 				<div class="row mx-auto">
@@ -121,7 +122,6 @@
 						<li>Click the submit button.</li>
 					</ol>
 				</div>
-
 			</div>
 			<br /><br /><br /><br />
 			<!-- /.container -->
@@ -162,59 +162,53 @@
 			}
 
 			//getting color value of the button clicked
-			/* 			$("button").click(function () {
-							//if button has the colorCircle class, if not return
-							if ($(this).hasClass("moodColor")) {
-								//alert(this.value); // or alert($(this).attr('id'));
-								console.log(this.value);
-								$("#colorInput").val(this.value);
-							} else {
-								return;
-							}
-						}); */
-
-
-			//getting color value of the button clicked
 			$("button").click(function () {
 				//if button has the colorCircle class, if not return
+				//if the button is romantic
 				if ($(this).hasClass("moodColor") && $(this).hasClass("romantic")) {
-					//alert(this.value); // or alert($(this).attr('id'));
 					$("#redColorInput").val(188);
 					$("#greenColorInput").val(36);
 					$("#blueColorInput").val(60);
-					console.log($('#redColorInput').val());
-					console.log($('#greenColorInput').val());
-					console.log($('#blueColorInput').val());
-				} else if ($(this).hasClass("moodColor") && $(this).hasClass("entertaining")) {
+					//testing
+					// console.log($('#redColorInput').val());
+					// console.log($('#greenColorInput').val());
+					// console.log($('#blueColorInput').val());
+				}
+				//if the button is entertaining  
+				else if ($(this).hasClass("moodColor") && $(this).hasClass("entertaining")) {
 					//alert(this.value); // or alert($(this).attr('id'));
 					$("#redColorInput").val(242);
 					$("#greenColorInput").val(85);
 					$("#blueColorInput").val(44);
-					console.log($('#redColorInput').val());
-					console.log($('#greenColorInput').val());
-					console.log($('#blueColorInput').val());
-				} else if ($(this).hasClass("moodColor") && $(this).hasClass("relaxing")) {
-					//alert(this.value); // or alert($(this).attr('id'));
+					//testing
+					// console.log($('#redColorInput').val());
+					// console.log($('#greenColorInput').val());
+					// console.log($('#blueColorInput').val());
+				} //if the button is relaxing 
+				else if ($(this).hasClass("moodColor") && $(this).hasClass("relaxing")) {
 					$("#redColorInput").val(79);
 					$("#greenColorInput").val(132);
 					$("#blueColorInput").val(196);
-					console.log($('#redColorInput').val());
-					console.log($('#greenColorInput').val());
-					console.log($('#blueColorInput').val());
-				} else if ($(this).hasClass("moodColor") && $(this).hasClass("warmth")) {
+					//testing
+					// console.log($('#redColorInput').val());
+					// console.log($('#greenColorInput').val());
+					// console.log($('#blueColorInput').val());
+				} //if button is warmth
+				else if ($(this).hasClass("moodColor") && $(this).hasClass("warmth")) {
 					//alert(this.value); // or alert($(this).attr('id'));
 					$("#redColorInput").val(246);
 					$("#greenColorInput").val(209);
 					$("#blueColorInput").val(85);
-					console.log($('#redColorInput').val());
-					console.log($('#greenColorInput').val());
-					console.log($('#blueColorInput').val());
+					//testing
+					// console.log($('#redColorInput').val());
+					// console.log($('#greenColorInput').val());
+					// console.log($('#blueColorInput').val());
 				}
+				// if the button has none of those classes return
 				else {
 					return;
 				}
 			});
-
 
 		</script>
 

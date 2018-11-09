@@ -26,19 +26,20 @@
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="images/logo.png" />
 
-
 	<title>PreSet Color Selection</title>
 </head>
 
 <body>
+	<!-- ejs menu (nav bar navigation) -->
 	<% include partials/menu %>
+	<!-- background -->
 	<div class="bg">
 		<div class="triangle-right"></div>
 		<div class="triangle-down"></div>
 		<!-- Page Content -->
 		<div class="container modal-dialo">
 			<div class="row">
-				<!-- faq title -->
+				<!-- preset color selection title -->
 				<div class="title text-center col-12 col-sm-12 col-md-12 col-lg-12">
 					<h1>PreSet Color<br /> Selection</h1>
 				</div>
@@ -47,16 +48,14 @@
 			<div id="presetcolorbox" style="" class="mainbox">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						<!--<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>-->
 					</div>
-					<!-- error message if the user is not logged in (started a session) -->
 					<div style="" class="panel-body">
 						<!-- start of form, that includes a post method to color.js -->
 						<form id="presetcolorform" class="form-horizontal" role="form" method="post" action="/color">
+							<!-- input boxes to get the color RGB values that are selected, do not display on website -->
 							<input type="text" id="redColorInput" name="redInput" value="" style="display: none;" />
 							<input type=" text" id="greenColorInput" name="greenInput" value="" style="display: none;" />
 							<input type="text" id="blueColorInput" name="blueInput" value="" style="display: none;" />
-
 							<!--start of preset colors -->
 							<!-- first set of colors -->
 							<div class="row colorRow mx-auto">
@@ -134,6 +133,7 @@
 					</div>
 				</div>
 			</div>
+			<!-- tooltip button -->
 			<button class="toolTipBtn" id="toolTipBtn" data-toggle="modal" data-target="#exampleModalCenter">
 				<i class="fas fa-2x fa-question-circle"></i>
 			</button>
@@ -194,130 +194,103 @@
 				modal.style.display = "none";
 			}
 		}
-
 		// When the user clicks anywhere outside of the modal, close it
 
 
 		//getting color value of the button clicked
-		/* 		$("button").click(function () {
-					//if button has the colorCircle class, if not return
-					if ($(this).hasClass("colorCircle")) {
-						//alert(this.value); // or alert($(this).attr('id'));
-						console.log(this.value);
-						$("#colorInput").val(this.value);
-					} else {
-						return;
-					}
-				}); */
-
-		/* 		$("button").click(function () {
-					if ($(this).hasClass("colorCircle")) {
-						//alert(this.value); // or alert($(this).attr('id'));
-						console.log("hi");
-						$(this).css("border", "3px #2491eb solid");
-					}
-		
-				}) */
-
-		//getting color value of the button clicked
 		$("button").click(function () {
 			//if button has the colorCircle class, if not return
+			//if button is red
 			if ($(this).hasClass("colorCircle") && $(this).hasClass("red")) {
-				//alert(this.value); // or alert($(this).attr('id'));
 				$("#redColorInput").val(255);
 				$("#greenColorInput").val(0);
 				$("#blueColorInput").val(0);
-				console.log($('#redColorInput').val());
-				console.log($('#greenColorInput').val());
-				console.log($('#blueColorInput').val());
-				//	$(this).css("border", "3px #2491eb solid");
-
-			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("green")) {
-				//alert(this.value); // or alert($(this).attr('id'));
+				//testing
+				// console.log($('#redColorInput').val());
+				// console.log($('#greenColorInput').val());
+				// console.log($('#blueColorInput').val());
+			} //if button is green
+			else if ($(this).hasClass("colorCircle") && $(this).hasClass("green")) {
 				$("#redColorInput").val(0);
 				$("#greenColorInput").val(255);
 				$("#blueColorInput").val(0);
-				console.log($('#redColorInput').val());
-				console.log($('#greenColorInput').val());
-				console.log($('#blueColorInput').val());
-				//	$(this).css("border", "3px #2491eb solid");
-
-			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("blue")) {
-				//alert(this.value); // or alert($(this).attr('id'));
+				//testing
+				// console.log($('#redColorInput').val());
+				// console.log($('#greenColorInput').val());
+				// console.log($('#blueColorInput').val());
+			}  //if button is blue 
+			else if ($(this).hasClass("colorCircle") && $(this).hasClass("blue")) {
 				$("#redColorInput").val(0);
 				$("#greenColorInput").val(0);
 				$("#blueColorInput").val(255);
 				console.log($('#redColorInput').val());
 				console.log($('#greenColorInput').val());
 				console.log($('#blueColorInput').val());
-				// $(this).css("border", "3px #2491eb solid");
-
-			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("navyBlue")) {
-				//alert(this.value); // or alert($(this).attr('id'));52, 49, 72
+				//testing
+				// console.log($('#redColorInput').val());
+				// console.log($('#greenColorInput').val());
+				// console.log($('#blueColorInput').val());
+			} //if button is navy blue 
+			else if ($(this).hasClass("colorCircle") && $(this).hasClass("navyBlue")) {
 				$("#redColorInput").val(52);
 				$("#greenColorInput").val(49);
 				$("#blueColorInput").val(72);
-				console.log($('#redColorInput').val());
-				console.log($('#greenColorInput').val());
-				console.log($('#blueColorInput').val());
-				// $(this).css("border", "3px #2491eb solid");
-
-			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("white")) {
-				//alert(this.value); // or alert($(this).attr('id'));
+				//testing
+				// console.log($('#redColorInput').val());
+				// console.log($('#greenColorInput').val());
+				// console.log($('#blueColorInput').val());
+			} //if button is white
+			else if ($(this).hasClass("colorCircle") && $(this).hasClass("white")) {
 				$("#redColorInput").val(255);
 				$("#greenColorInput").val(255);
 				$("#blueColorInput").val(255);
-				console.log($('#redColorInput').val());
-				console.log($('#greenColorInput').val());
-				console.log($('#blueColorInput').val());
-				// $(this).css("border", "3px #2491eb solid");
-
-			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("purple")) {
-				//alert(this.value); // or alert($(this).attr('id'));107, 91, 149
+				//testing
+				// console.log($('#redColorInput').val());
+				// console.log($('#greenColorInput').val());
+				// console.log($('#blueColorInput').val());
+			} //if button is purple
+			else if ($(this).hasClass("colorCircle") && $(this).hasClass("purple")) {
 				$("#redColorInput").val(107);
 				$("#greenColorInput").val(91);
 				$("#blueColorInput").val(149);
-				console.log($('#redColorInput').val());
-				console.log($('#greenColorInput').val());
-				console.log($('#blueColorInput').val());
-				// $(this).css("border", "3px #2491eb solid");
-
-			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("yellow")) {
-				//alert(this.value); // or alert($(this).attr('id'));241, 234, 127
+				//testing
+				// console.log($('#redColorInput').val());
+				// console.log($('#greenColorInput').val());
+				// console.log($('#blueColorInput').val());
+			} //if button is yellow
+			else if ($(this).hasClass("colorCircle") && $(this).hasClass("yellow")) {
 				$("#redColorInput").val(241);
 				$("#greenColorInput").val(234);
 				$("#blueColorInput").val(127);
-				console.log($('#redColorInput').val());
-				console.log($('#greenColorInput').val());
-				console.log($('#blueColorInput').val());
-				// $(this).css("border", "3px #2491eb solid");
-
-			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("pink")) {
+				//testing
+				// console.log($('#redColorInput').val());
+				// console.log($('#greenColorInput').val());
+				// console.log($('#blueColorInput').val());
+			} //if button is pink
+			else if ($(this).hasClass("colorCircle") && $(this).hasClass("pink")) {
 				//alert(this.value); // or alert($(this).attr('id'));206, 49, 117
 				$("#redColorInput").val(206);
 				$("#greenColorInput").val(49);
 				$("#blueColorInput").val(117);
-				console.log($('#redColorInput').val());
-				console.log($('#greenColorInput').val());
-				console.log($('#blueColorInput').val());
-				// $(this).css("border", "3px #2491eb solid");
-
-			} else if ($(this).hasClass("colorCircle") && $(this).hasClass("cyan")) {
+				//testing
+				// console.log($('#redColorInput').val());
+				// console.log($('#greenColorInput').val());
+				// console.log($('#blueColorInput').val());
+			} //if button is cyan
+			else if ($(this).hasClass("colorCircle") && $(this).hasClass("cyan")) {
 				//alert(this.value); // or alert($(this).attr('id'));64,224,208
 				$("#redColorInput").val(64);
 				$("#greenColorInput").val(224);
 				$("#blueColorInput").val(208);
-				console.log($('#redColorInput').val());
-				console.log($('#greenColorInput').val());
-				console.log($('#blueColorInput').val());
-				// $(this).css("border", "3px #2491eb solid");
-
-			}
+				//testing
+				// console.log($('#redColorInput').val());
+				// console.log($('#greenColorInput').val());
+				// console.log($('#blueColorInput').val());
+			}	// if the button has none of those classes return
 			else {
 				return;
 			}
 		});
-
 
 	</script>
 
