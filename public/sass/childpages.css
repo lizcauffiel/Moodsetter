@@ -1,3 +1,4 @@
+/* footer */
 .footer {
   position: fixed;
   left: 0;
@@ -12,7 +13,7 @@
   .footer a {
     text-decoration-line: underline;
     color: white !important; }
-
+/* navigation */
 .nav-item {
   font-family: "komu-a",sans-serif !important;
   color: white !important;
@@ -29,7 +30,7 @@
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto; }
-
+/* font styles */
 h1 {
   /* font-family: 'Anton', sans-serif !important; */
   font-family: "komu-a",sans-serif !important;
@@ -48,7 +49,7 @@ h2 {
 
 .title {
   padding: 20px 0px 15px 0px; }
-
+/* background styles */
 .triangle-right {
   width: 0;
   height: 0;
@@ -67,7 +68,7 @@ h2 {
   border-top: 150px solid #3fb0ac;
   z-index: -1;
   position: absolute; }
-
+/* button css */
 .submitButton {
   margin-top: 10px;
   border: solid thin black !important;
