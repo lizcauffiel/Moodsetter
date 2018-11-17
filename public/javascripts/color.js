@@ -17,7 +17,7 @@ module.exports = {
 	//are the values the submitted variable from the color pages.
 	// for the http url where the host is the value in the variable (ip address and port)
 	sendColor: function (host, red, green, blue) {
-		var colorEndPoint = "http://" + host + "/changeLedInRange?from=0&to=59&red=" + red + "&green=" + green + "&blue=" + blue + "&brightness=90"
+		var colorEndPoint = "http://" + host + "/changeLedInRange?from=0&to=59&red=" + red + "&green=" + green + "&blue=" + blue + "&brightness=70"
 		//testing
 		console.log("contacting colorEndPoint", colorEndPoint);
 		//send the request colorEndPoint, if it doesn't work send error

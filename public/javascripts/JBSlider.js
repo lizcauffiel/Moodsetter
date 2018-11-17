@@ -152,6 +152,7 @@ function setValues(event, slider) {
 
 function setBackground(slider, val) {
 
+
 	var background = $('#wrapper');
 
 	var current_value = background.css('background-color');

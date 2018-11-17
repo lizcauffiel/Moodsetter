@@ -72,12 +72,21 @@ app.post('/color', function (req, res) {
 	//testing
 	//console.log("sending color");
 
+	if (red == null || red == undefined) {
+		red = 0;
+	}
+	if (green == null || green == undefined) {
+		green = 0;
+	}
+	if (blue == null || blue == undefined) {
+		blue = 0;
+	}
 	//calling colorUtility variable which is calling color.js file
 	//to get the sendColor function and passing these parameters
 	colorUtility.sendColor(host, red, green, blue);
 
 	//testing-value from the color pages just submitted
-	//console.log(req.body);
+	console.log(req.body);
 	//console.log("sent color");
 
 	//after the request is sent redirect the user back on the same page they were on

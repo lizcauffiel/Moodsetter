@@ -181,7 +181,7 @@
 				<div class="modal-content">
 					<span class="close">&times;</span>
 					<ol type="1">
-						<li>Select red slider first.</li>
+						<li>Move the red slider first.</li>
 						<li>Select a color.</li>
 						<li>Click the submit button.</li>
 					</ol>
@@ -247,7 +247,7 @@
 				//variable equal a function passing the value color as a parameter
 				var slider_changed = function (value) {
 					//testing purposes
-					//	console.log(value);
+					//console.log(value);
 				}
 				//variable equals object colors
 				var color = {
@@ -264,11 +264,79 @@
 			}
 
 
+
+			window.addEventListener('load', function () {
+
+				var sliderredcontainer = document.getElementById('slider-red-container')
+				var slidergreencontainer = document.getElementById('slider-green-container')
+				var sliderbluecontainer = document.getElementById('slider-blue-container')
+
+
+				sliderredcontainer.addEventListener('touchstart', function (e) {
+					$("#redColorInput").val($('#info-red').html());
+
+					e.preventDefault()
+				}, false)
+
+				sliderredcontainer.addEventListener('touchmove', function (e) {
+					$("#redColorInput").val($('#info-red').html());
+
+					e.preventDefault()
+				}, false)
+
+				sliderredcontainer.addEventListener('touchend', function (e) {
+					$("#redColorInput").val($('#info-red').html());
+
+					e.preventDefault()
+				}, false)
+
+
+				slidergreencontainer.addEventListener('touchstart', function (e) {
+					$("#greenColorInput").val($('#info-green').html());
+
+					e.preventDefault()
+				}, false)
+
+				slidergreencontainer.addEventListener('touchmove', function (e) {
+					$("#greenColorInput").val($('#info-green').html());
+
+					e.preventDefault()
+				}, false)
+
+				slidergreencontainer.addEventListener('touchend', function (e) {
+					$("#greenColorInput").val($('#info-green').html());
+
+					e.preventDefault()
+				}, false)
+
+
+				sliderbluecontainer.addEventListener('touchstart', function (e) {
+					$("#blueColorInput").val($('#info-blue').html());
+
+					e.preventDefault()
+				}, false)
+
+				sliderbluecontainer.addEventListener('touchmove', function (e) {
+					$("#blueColorInput").val($('#info-blue').html());
+
+					e.preventDefault()
+				}, false)
+
+				sliderbluecontainer.addEventListener('touchend', function (e) {
+					$("#blueColorInput").val($('#info-blue').html());
+
+					e.preventDefault()
+				}, false)
+
+			}, false)
+
+
+
 			//getting red color value of the button clicked
 			$("#slider-red-container").click(function () {
 				//if button has the colorCircle class, if not return
 				//testing
-				//console.log($('#info-red').html());
+				console.log($('#info-red').html());
 				$("#redColorInput").val($('#info-red').html());
 			});
 
@@ -276,16 +344,18 @@
 			$("#slider-green-container").click(function () {
 				//if button has the colorCircle class, if not return
 				//testing
-				//console.log($('#info-green').html());
+				console.log($('#info-green').html());
 				$("#greenColorInput").val($('#info-green').html());
 			});
 			//getting blue color value of the button clicked
 			$("#slider-blue-container").click(function () {
 				//if button has the colorCircle class, if not return
 				//testing
-				//console.log($('#info-blue').html());
+				console.log($('#info-blue').html());
 				$("#blueColorInput").val($('#info-blue').html());
 			});
+
+
 
 		</script>
 
