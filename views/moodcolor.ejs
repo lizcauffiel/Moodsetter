@@ -161,6 +161,7 @@
 				}
 			}
 
+
 			//getting color value of the button clicked
 			$("button").click(function () {
 				//if button has the colorCircle class, if not return
@@ -169,40 +170,64 @@
 					$("#redColorInput").val(188);
 					$("#greenColorInput").val(36);
 					$("#blueColorInput").val(60);
+
+					$(".card.romantic").css({ "border": "5px solid rgba(81, 203, 238, 1)", "box-shadow": "(0 0 5px rgba(81, 203, 238, 1))" });
+					$(".card.entertaining").css("border", "none");
+					$(".card.relaxing").css("border", "none");
+					$(".card.warmth").css("border", "none");
+
 					//testing
-					// console.log($('#redColorInput').val());
-					// console.log($('#greenColorInput').val());
-					// console.log($('#blueColorInput').val());
+					//console.log($('#redColorInput').val());
+					//console.log($('#greenColorInput').val());
+					//console.log($('#blueColorInput').val()); 
 				}
-				//if the button is entertaining  
+				//if the button is entertaining 
 				else if ($(this).hasClass("moodColor") && $(this).hasClass("entertaining")) {
-					//alert(this.value); // or alert($(this).attr('id'));
 					$("#redColorInput").val(242);
 					$("#greenColorInput").val(85);
 					$("#blueColorInput").val(44);
+
+					$(".card.romantic").css("border", "none");
+					$(".card.entertaining").css({ "border": "5px solid rgba(81, 203, 238, 1)", "box-shadow": "(0 0 5px rgba(81, 203, 238, 1))" });
+					$(".card.relaxing").css("border", "none");
+					$(".card.warmth").css("border", "none");
+
+
 					//testing
-					// console.log($('#redColorInput').val());
-					// console.log($('#greenColorInput').val());
-					// console.log($('#blueColorInput').val());
+					//console.log($('#redColorInput').val());
+					//console.log($('#greenColorInput').val());
+					//console.log($('#blueColorInput').val()); 
 				} //if the button is relaxing 
 				else if ($(this).hasClass("moodColor") && $(this).hasClass("relaxing")) {
 					$("#redColorInput").val(79);
 					$("#greenColorInput").val(132);
 					$("#blueColorInput").val(196);
+
+					$(".card.romantic").css("border", "none");
+					$(".card.entertaining").css("border", "none");
+					$(".card.relaxing").css({ "border": "5px solid rgba(81, 203, 238, 1)", "box-shadow": "(0 0 5px rgba(81, 203, 238, 1))" });
+					$(".card.warmth").css("border", "none");
+
 					//testing
-					// console.log($('#redColorInput').val());
-					// console.log($('#greenColorInput').val());
-					// console.log($('#blueColorInput').val());
+					//console.log($('#redColorInput').val());
+					//console.log($('#greenColorInput').val());
+					//console.log($('#blueColorInput').val());
 				} //if button is warmth
 				else if ($(this).hasClass("moodColor") && $(this).hasClass("warmth")) {
-					//alert(this.value); // or alert($(this).attr('id'));
 					$("#redColorInput").val(246);
 					$("#greenColorInput").val(209);
 					$("#blueColorInput").val(85);
+
+
+					$(".card.romantic").css("border", "none");
+					$(".card.entertaining").css("border", "none");
+					$(".card.relaxing").css("border", "none");
+					$(".card.warmth").css({ "border": "5px solid rgba(81, 203, 238, 1)", "box-shadow": "(0 0 5px rgba(81, 203, 238, 1))" });
+
 					//testing
-					// console.log($('#redColorInput').val());
-					// console.log($('#greenColorInput').val());
-					// console.log($('#blueColorInput').val());
+					//console.log($('#redColorInput').val());
+					//console.log($('#greenColorInput').val());
+					//console.log($('#blueColorInput').val());
 				}
 				// if the button has none of those classes return
 				else {

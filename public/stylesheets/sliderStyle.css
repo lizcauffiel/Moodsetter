@@ -2,6 +2,8 @@
 #wrapper {
     border: thin solid lightgray;
     padding: 13% 35%;
+background-color: rgba(0,0,0,0);
+
  } 
 /* for each color container (slider & title) */
 #slider-red-container {

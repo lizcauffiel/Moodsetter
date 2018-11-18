@@ -1,4 +1,3 @@
-// this is a JQuery plug in found from https://www.jqueryscript.net/other/RGB-Color-Slider-Plugin-jQuery-JB-Slider.html and modified
 var JBSlider = function (opts) {
 
 	this.opts = opts;
@@ -16,7 +15,6 @@ var JBSlider = function (opts) {
 	bind_events.apply(this);
 
 	this.jb_slider_handle = $('.jbslider-handle-' + this.color + '');
-
 }
 
 function setup_slider(color) {
@@ -25,12 +23,16 @@ function setup_slider(color) {
 
 	var slider_html = "";
 	slider_html += this.opts.background_content;
+
 	slider_html += "<div id='" + this.handle_id + "' class='jbslider-handle-" + color + "'>";
+
 	slider_html += this.opts.handle_content;
+	console.log("	this.opts.handle_content:", this.opts.handle_content);
+
 	slider_html += "</div>";
 
 	this.container.html(slider_html);
-
+	console.log("	this.container", this.container.html(slider_html));
 }
 
 function bind_events() {
@@ -38,7 +40,6 @@ function bind_events() {
 	this.container.on("mousedown touchstart", startSlideRed.bind(this));
 	this.j_window.on("mousemove touchmove", moveSlideRed.bind(this));
 	this.j_window.on("mouseup touchend", stopSlideRed.bind(this));
-
 }
 
 function startSlideRed(event) {
@@ -60,7 +61,7 @@ function moveSlideRed(event) {
 	if (this.mouse_is_down) {
 
 		setValues(event, this);
-
+		console.log("")
 	};
 
 }
@@ -76,6 +77,7 @@ function stopSlideRed(event) {
 	};
 }
 
+
 function setValues(event, slider) {
 
 	var set_perc;
@@ -87,6 +89,7 @@ function setValues(event, slider) {
 	} else {
 
 		set_perc = ((((event.clientX - slider.container.offset().left) / slider.container.width())).toFixed(2));
+
 	};
 
 	var intensity = (55.2 * Math.log((set_perc * 100) + 1));
@@ -123,7 +126,7 @@ function setValues(event, slider) {
 
 		slider.jb_slider_handle.css('background-color', 'rgba(0,0,0,1)');
 
-		label_selector.innerhtml(0);
+		label_selector.html(0);
 
 		setBackground(slider, 0);
 
@@ -133,7 +136,7 @@ function setValues(event, slider) {
 
 		slider.jb_slider_handle.css('background-color', max_color_value);
 
-		label_selector.innerhtml(255);
+		label_selector.html(255);
 
 		setBackground(slider, 255);
 
@@ -145,6 +148,8 @@ function setValues(event, slider) {
 
 		label_selector.html(intensity.toFixed());
 
+		//	console.log("slider:", slider);
+		//console.log("event:", event);
 		setBackground(slider, intensity.toFixed());
 
 	};
@@ -152,27 +157,44 @@ function setValues(event, slider) {
 
 function setBackground(slider, val) {
 
-
 	var background = $('#wrapper');
 
 	var current_value = background.css('background-color');
-	var comma_split = current_value.split(', ');
-	var blue_split = comma_split[2].split(')');
-
-	var current_red = comma_split[0].slice(4);
-	var current_green = comma_split[1];
-	var current_blue = blue_split[0];
+	var comma_split = current_value.split('(')[1]; //0,0,0,1)
+	var array = comma_split.split(",").slice(0, 3);
+	//var blue_split = comma_split[2].split(')');
+	console.log("current_value", current_value);
+	console.log("array", array);
+	var current_red = array[0];
+	var current_green = array[1];
+	var current_blue;
+	if (array[2].indexOf(")") != -1) {
+		current_blue = array[2].split(")")[0];
+	}
+	else {
+		current_blue = array[2];
+	}
 
 	if (slider.color === "red") {
 		background.css('background-color', 'rgba(' + val + ',' + current_green + ',' + current_blue + ',1)');
+		console.log("val", val);
+		console.log("current_green", current_green);
+		console.log("current_blue", current_blue);
+
 	};
 
 	if (slider.color === "green") {
 		background.css('background-color', 'rgba(' + current_red + ',' + val + ',' + current_blue + ',1)');
+		console.log("val", val);
+		console.log("current_red", current_red);
+		console.log("current_blue", current_blue);
 	};
 
 	if (slider.color === "blue") {
 		background.css('background-color', 'rgba(' + current_red + ',' + current_green + ',' + val + ',1)');
+		console.log("val", val);
+		console.log("current_green", current_green);
+		console.log("current_red", current_red);
 	};
 
 }
